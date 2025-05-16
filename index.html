@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amrutha & Rakesh Roshan - Wedding Invitation</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #fefcf9;
+      color: #2d2d2d;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .container {
+      padding: 2em;
+    }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      margin: 0.2em 0;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      margin: 0.3em 0;
+    }
+    .timer {
+      font-size: 2em;
+      margin: 1em 0;
+      color: #af4261;
+    }
+    .details {
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+    img {
+      width: 80%;
+      max-width: 600px;
+      margin-top: 2em;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p>Requesting your gracious presence for the wedding of</p>
+    <h1>Amrutha & Rakesh Roshan</h1>
+    <div class="details">
+      <h2>Reception</h2>
+      <p>May 24, 2025 - 6:00 PM onwards</p>
+
+      <h2>Muhurtham</h2>
+      <p>May 25, 2025 - 9:30 AM to 10:45 AM</p>
+
+      <h2>Venue</h2>
+      <p><strong>DRLS Palace</strong><br />
+      Shetty Halli, Jalahalli West,<br />
+      Bengaluru, Karnataka</p>
+    </div>
+
+    <div class="timer" id="countdown"></div>
+
+    <img src="/mnt/data/IMG_6680.JPG" alt="Amrutha & Rakesh Roshan" />
+  </div>
+
+  <script>
+    const countdown = () => {
+      const eventDate = new Date('May 25, 2025 09:30:00').getTime();
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      if (distance < 0) {
+        document.getElementById("countdown").innerHTML = "🎉 The big day is here! 🎉";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        `${days}d ${hours}h ${minutes}m ${seconds}s left`;
+    };
+
+    setInterval(countdown, 1000);
+  </script>
+</body>
+</html>
